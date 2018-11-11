@@ -32,11 +32,13 @@
   * 这样我觉得 既然可以插入到前面 就可以插入到后面？ 遗憾的是js内置方法没有实现这个功能，那咋们就自己实现它
  
 
-	     Element.prototype.insertAfter=function(targetNode,afterNode){ 	
+	     Element.prototype.insertAfter=function(targetNode,afterNode){ 
+	      //解释：那下面span来说，span的下一个兄弟节点是p,
 		var beforeNode=afterNode.nextElementSibling;
 		  if(beforeNode==null){
 			this.appendChild(targetNode);
 		  }else{
+		    //就在p前面插入新节点，(这样以来不是在span后面插入新节点吗？,因为p前面节点就是span)
 			this.insertBefore(targetNode,beforeNode);
 		  }
 	     }
